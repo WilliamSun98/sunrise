@@ -1,0 +1,62 @@
+<div style="padding:24px;">
+    <nz-breadcrumb nz-col style="margin:16px 0;">
+        <nz-breadcrumb-item>Job Market</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Post Job Request</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="jobReqMain" style="padding:24px; background: #fff; min-height: 100vh;">
+        <h2>Post A New Job Request</h2>
+
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event, validateForm.value)">
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Job Title</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input nz-input formControlName="jobTitle" placeholder="Job Title">
+                <nz-form-explain *ngIf="validateForm.get('jobTitle')?.dirty && validateForm.get('jobTitle')?.errors">
+                  <ng-container *ngIf="validateForm.get('jobTitle')?.hasError('required')">
+                    Please input a job title!
+                  </ng-container>
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Job Description</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input nz-input formControlName="description" placeholder="description">
+                <nz-form-explain *ngIf="validateForm.get('description')?.dirty&&validateForm.get('description')?.errors">
+                  <ng-container *ngIf="validateForm.get('description')?.hasError('required')">
+                    Please input your job description!
+                  </ng-container>
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="7" nzRequired>Number of Open</nz-form-label>
+                <nz-form-control [nzSpan]="12">
+                  <input formControlName="openFor" nz-input rows="2" placeholder="Number of Open">
+                  <nz-form-explain *ngIf="validateForm.get('openFor')?.dirty&&validateForm.get('openFor')?.hasError('required')">Please write Number of Open here!</nz-form-explain>
+                </nz-form-control>
+              </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Job Details</nz-form-label>
+              <nz-form-control [nzSpan]="12">
+                <ckeditor [editor]="Editor"  formControlName="details" data="<p>Hello, world!</p>"></ckeditor>
+                <!-- <textarea formControlName="details" nz-input rows="2" placeholder="write job details"></textarea> -->
+                <nz-form-explain *ngIf="validateForm.get('details')?.dirty&&validateForm.get('details')?.hasError('required')">Please write details here!</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Select Time Range</nz-form-label>
+                <nz-form-control [nzSm]="16" [nzXs]="24">
+                  <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary" style="margin-right: 15px">Submit</button>
+                <!-- <button nz-button (click)="resetForm($event)" style="margin-right: 15px">Reset</button> -->
+                <a [routerLink]="['../']" class="registerbtn btn-link">Cancel</a>
+              </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>         
+</div>

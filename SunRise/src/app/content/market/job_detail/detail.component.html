@@ -1,0 +1,117 @@
+<div class="main_job_display" style="padding:24px; background: #fff; min-height: 100vh">
+    <nz-breadcrumb class="path" nz-col style="margin: 16px 0;">
+        <nz-breadcrumb-item>Job Market</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Job Detail</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="General_job_description">
+        <div #Job_title id = 'Job_title'></div>
+        <div #Company_name id = 'Company_name'></div>
+        <div #Short_description id = 'Short_description'></div>
+        <button [disabled]="loading" class="applybtn btn-primary" id="resume_download_button" (click)="showModal()" *ngIf="isCompany">Download All Resumes</button>
+        <button [disabled]="loading" class="drawbtn btn-primary" (click)="open()" *ngIf="isCompany">Invite Interview</button>
+
+        <nz-drawer
+          [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+          [nzMaskClosable]="false"
+          [nzWidth]="720"
+          [nzVisible]="visible"
+          nzTitle="Invite Interview"
+          (nzOnClose)="close()"
+        >
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event, validateForm.value)">
+            <div formArrayName="inviteFrom">
+              <div *ngFor="let inviteControl of formData.controls; let i = index">
+                  <div>
+                      <span>User {{i + 1}}</span>
+                      <button nz-row nzType="flex" class="ant-btn ant-btn-primary" (click)="removeInvition(i)" nzJustify='end'>Remove</button>
+                  </div>
+                <div [formGroupName]="i">
+                  <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="12">
+                      <nz-form-item>
+                        <nz-form-label>User Name</nz-form-label>
+                        <nz-form-control>
+                            <select formControlName="userName">
+                              <option value="">Select</option>
+                              <option *ngFor="let tag of tagValue" [ngValue]="tag" style="width:30px">{{tag}}</option>
+                            </select>
+                        </nz-form-control>
+                      </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="12">
+                      <nz-form-item>
+                        <nz-form-label>DateTime</nz-form-label>
+                        <nz-form-control>
+                          <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
+                        </nz-form-control>
+                      </nz-form-item>
+                    </div>
+                  </div>
+                  <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="24">
+                      <nz-form-item>
+                        <nz-form-label>Description</nz-form-label>
+                        <nz-form-control>
+                          <textarea
+                            nz-input
+                            placeholder="please enter url description"
+                            [nzAutosize]="{ minRows: 4, maxRows: 4 }"
+                            formControlName="description"
+                          ></textarea>
+                        </nz-form-control>
+                      </nz-form-item>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <nz-form-control><button nz-button nzType="primary" style="margin-right: 15px">Submit</button></nz-form-control>
+          </form>
+          <div class="footer">
+            <button type="button" (click)="addInvition()" class="ant-btn ant-btn-primary"><span>Add</span></button>
+            <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>Cancel</span></button>
+          </div>
+        </nz-drawer>
+        <button [disabled]="loading" class="applybtn btn-primary" id="job_apply_button" (click)="showModal()" *ngIf="isStudent">Apply</button>
+
+        <nz-modal [(nzVisible)]="isVisible" nzTitle="Upload Your Resume" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+                <nz-upload
+                nzAction="{{ip}}/jobs/uploads/"
+                [nzCustomRequest]="customReq"
+                [nzFileList]="fileList"
+                [nzAccept]="pdf"
+                nzMultiple
+                [nzLimit]="1"
+                [nzSize]=0>
+                <button nz-button>
+                  <i nz-icon type="upload"></i><span>Upload</span>
+                </button>
+              </nz-upload>
+        </nz-modal>
+
+    </div>
+
+    <div class="Job_Description_Dashboard">
+        <div class="Detail_job_description">
+            <label class="Job_Description">Number of opening:</label>
+            <div #Job_Number class="Job_Description"></div>
+            <hr>
+            <label class="Job_Description">Job Description:</label>
+            <div #Main_Job_Description class="Main Job Desciption">
+              
+            </div>
+            <hr>
+        </div>
+        <div class="Detailed_date">
+            <Label class = 'Job_Description'>Post date:</Label>
+            <div #Apply_start class="Job_Description"></div>
+            <label class = 'Job_Description'>Apply Deadline:</label>
+            <div #Apply_end class="Job_Description"></div>
+        </div>
+    </div>
+
+    <footer style="padding:24px; background: #fff; min-height: 100vh; font-size: 175% ">
+      <a [routerLink]="['/home/market']" class="registerbtn btn-link">Back</a>
+    </footer>
+
+</div>

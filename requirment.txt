@@ -1,0 +1,7 @@
+go to Backend/sunrise/
+and run the following command in terminal
+
+pip install -r requirment.txt
+pyhton manage.py makemigrations
+pyhton manage.py migrate
+python manage.py runserver

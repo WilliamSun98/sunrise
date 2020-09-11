@@ -1,0 +1,78 @@
+<div style="padding:24px; background: #fff; min-height: 100vh">
+    <nz-breadcrumb class="path" nz-col style="margin: 16px 0;">
+        <nz-breadcrumb-item>Poll</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Poll Detail</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="General_job_description">
+        <div #Job_title id = 'Job_title'>Test_Job_Title</div>
+        <div #Company_name id = 'Company_name'>Google</div>
+        <div #Short_description id = 'Short_description'>This is a test job</div>
+    </div>
+
+    <div class="Job_Description_Dashboard">
+        <div class="Detail_job_description">
+            <label class="Job_Description">Poll Description</label>
+            <div #Main_Job_Description class="Main Job Desciption">
+                This is formal Job Description;
+            </div>
+            <hr>
+        </div>
+        <div class="Detailed_date">
+            <Label class = 'Job_Description'>Post date:</Label>
+            <div #Apply_start class="Job_Description">2018-03-18</div>
+            <label class = 'Job_Description'>Apply Deadline:</label>
+            <div #Apply_end class="Job_Description">2018-03-19</div>
+        </div>
+    </div>
+
+    <div class="response">
+        <h2>Would You Like To Attend This Activity:</h2>
+        <form [formGroup]="answerForm" (ngSubmit)="onSubmit()">
+            <div class="radio" *ngFor="let answer of answers">
+                <label>
+                    <input
+                    type="radio"
+                    formControlName="answer"
+                    [value]="answer">{{ answer }}
+                </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+
+        <div style="background: #ECECEC; padding: 30px; margin-top: 15px">
+                <nz-row [nzGutter]="16">
+                  <nz-col [nzSpan]="12">
+                    <nz-card>
+                      <nz-statistic
+                        [nzValue]="11.28 | number: '1.0-2'"
+                        [nzTitle]="'Yes'"
+                        [nzPrefix]="prefixTplOne"
+                        [nzSuffix]="'%'"
+                        [nzValueStyle]="{ color: '#3F8600' }"
+                      >
+                      </nz-statistic>
+                      <ng-template #prefixTplOne><i nz-icon type="arrow-up"></i></ng-template>
+                    </nz-card>
+                  </nz-col>
+                  <nz-col [nzSpan]="12">
+                    <nz-card>
+                      <nz-statistic
+                        [nzValue]="9.3 | number: '1.0-2'"
+                        [nzTitle]="'No'"
+                        [nzPrefix]="prefixTplTwo"
+                        [nzSuffix]="'%'"
+                        [nzValueStyle]="{ color: '#CF1322' }"
+                      >
+                      </nz-statistic>
+                      <ng-template #prefixTplTwo><i nz-icon type="arrow-down"></i></ng-template>
+                    </nz-card>
+                  </nz-col>
+                </nz-row>
+              </div>
+    </div>
+
+    <footer style="padding:24px; background: #fff; min-height: 100vh; font-size: 175% ">
+      <a [routerLink]="['/home/poll']" class="registerbtn btn-link">Back</a>
+    </footer>
+
+</div>

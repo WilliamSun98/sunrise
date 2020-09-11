@@ -1,0 +1,6 @@
+.poll_request{
+    display: inline-block;
+    float: right;
+    padding: 1%;
+    font-size: 125%;
+}

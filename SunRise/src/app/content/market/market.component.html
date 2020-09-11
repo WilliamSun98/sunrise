@@ -1,0 +1,31 @@
+<!-- NG-ZORRO -->
+
+<nz-content style="margin:24px 16px 0;">
+    <div>
+        <nz-breadcrumb style="margin: 16px 0;">
+            <nz-breadcrumb-item>Job Market</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div #request class="job_request" nz-row nzType="flex" nzJustify="end" *ngIf="isCompany">
+            <a routerLink='post_job'>Post New Job Request</a>
+        </div>
+    </div>
+    <div style="padding:24px; background: #fff; min-height: 100vh;">
+    <nz-list [nzDataSource]="jobList" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzPagination]="pagination" [nzLoading]="loading" style="padding: 2%">
+        <ng-template #item let-item>
+          <nz-list-item>
+            <nz-list-item-meta
+              [nzTitle]="nzTitle"
+              [nzDescription]="item.description"
+            >
+              <ng-template #nzTitle>
+                <h4><a [routerLink]="['detail', item.jobID]">{{ item.jobTitle }}</a></h4>
+              </ng-template>
+            </nz-list-item-meta>
+          </nz-list-item>
+        </ng-template>
+        <ng-template #pagination>
+            <nz-pagination [nzPageIndex]="1" [nzTotal]=total (nzPageIndexChange)="getJobs($event)"></nz-pagination>
+        </ng-template>
+      </nz-list>
+    </div>
+</nz-content>

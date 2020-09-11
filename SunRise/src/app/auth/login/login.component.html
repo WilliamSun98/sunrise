@@ -1,0 +1,52 @@
+<!-- <div>
+    <button nz-button class="login-form-button" [nzType]="'primary'" [nzSize]="'large'">Log in</button>
+</div> -->
+
+<div class="loginMain" style="min-height: 100vh">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+    </div>
+    <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+    <nz-alert *ngIf="auth" nzType="error" nzMessage="Error" nzDescription="Wrong User Name or Password." nzShowIcon class="errorBox"></nz-alert>
+    </div>
+    <div class="form-group">
+    <button [disabled]="loading" class="loginbtn btn-primary">Login</button>
+    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <a [routerLink]="['/register']" class="loginbtn btn-link">Register</a>
+    </div>
+    </form>
+</div>
+
+
+
+
+<!-- <div class="sign_div" contorller="loginCtrl">
+    <div class="form-group">
+        <span>E-mail：</span>
+        <span class="input-icon">
+        <input type="text" class="form-control" placeholder="E-mail" ng-model="user.user">
+            </span>
+    </div>
+    <div class="form-group form-actions">
+        <span>Password：</span>
+        <span class="input-icon">
+        <input type="password" class="form-control password" placeholder="password" ng-model="user.password">
+        </span>
+    </div>
+    <div class="form-group zlogin">
+        <button (click)="login()" class="zbtn ">
+        login
+        </button>
+    </div>
+</div> -->

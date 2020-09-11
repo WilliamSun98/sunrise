@@ -1,0 +1,6 @@
+# block all the migrations folders
+
+**/migrations
+/Backend/sunrise/*/__pycache__/**
+**.sqlite3
+db.sqlite3

@@ -1,0 +1,12 @@
+<div nz-row nzType="flex" nzJustify="space-between">
+    <div class="weather_detail">Weather Description:</div>
+    <div nz-col nzSpan="2" #weather_description class="weather_detail"> Cloudy </div>
+    <div><img #weather_image [src]=this.url alt="Cloudy"/></div>
+    <div class="weather_detail">Min temp:</div>
+    <div nz-col nzSpan="2" #weather_min_temperature class="weather_detail">-2 °C </div>
+    <div class="weather_detail">Max temp:</div>
+    <div nz-col nzSpan="2" #weather_max_temperature class="weather_detail"> 4 °C</div>
+    <button nz-col nzSpan="8" nz-button nzType="primary" (click)="logout()">Logout</button>
+
+</div>
+<!-- </nz-header> -->

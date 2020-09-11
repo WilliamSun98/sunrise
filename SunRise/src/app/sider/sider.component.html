@@ -1,0 +1,13 @@
+<!-- <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'lg'" [nzCollapsedWidth]="0" [nzZeroTrigger]="zeroTrigger"> -->
+    <p class="title">SunRise</p>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item *ngIf="isCompany||isStudent"><span><i nz-icon type="user"></i><span class="nav-text"><a [routerLink]="['market']">Job Market</a></span></span></li>
+      <li nz-menu-item *ngIf="isClub||isStudent"><span><i nz-icon type="video-camera"></i><span class="nav-text"><a [routerLink]="['poll']">Live Poll</a></span></span></li>
+      <li nz-menu-item><span><i nz-icon type="appstore"></i><span class="nav-text"><a [routerLink]="['schedule']">Schedule</a></span></span></li>
+      <li nz-menu-item><span><i nz-icon type="setting"></i><span class="nav-text"><a [routerLink]="['account']">Account</a></span></span></li>
+    </ul>
+
+    <footer style="text-align: center">
+        <a [routerLink]="['credit']">Credits</a>
+    </footer>
+<!-- </nz-sider> -->

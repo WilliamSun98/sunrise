@@ -1,0 +1,20 @@
+.student_account_main {
+    display: grid;
+    grid-template-columns: 15% 70%;
+    grid-gap: 5%;
+}
+
+.student_account_name {
+    /* text-align: center; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* padding: 2px; */
+    font-size: 25px;
+}
+
+.student_account_header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

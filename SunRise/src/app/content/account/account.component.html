@@ -1,0 +1,85 @@
+<!-- NG-ZORRO -->
+
+<nz-content style="margin:24px 16px 0;">
+    <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>Account Management</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div style="padding:24px; background: #fff; min-height: 100vh;">
+        <div class="student_account_main">
+            <div class="student_account_header">
+                <div>
+                  <nz-avatar [nzSize]="120" nzIcon="user" class = "student_user_icon" nzSrc="{{imgUrl}}"></nz-avatar>
+                </div>
+                <div style="margin-top: 10px; margin-bottom: 10px; max-width: 80px;">
+                    <nz-upload
+                    nzAction="{{ip}}/account/upload/"
+                    [nzCustomRequest]="customReq"
+                    [nzFileType]="isJPG">
+                    <button nz-button [nzSize]="40">
+                      <i nz-icon type="upload"></i><span>Upload</span>
+                    </button>
+                  </nz-upload>
+                </div>
+                <div #userName class="student_account_name">Test_User</div>
+            </div>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event, validateForm.value)">
+              <nz-form-item>
+                <nz-form-label [nzSpan]="7" nzRequired>Email</nz-form-label>
+                <nz-form-control [nzSpan]="12" nzHasFeedback>
+                  <input nz-input formControlName="email" placeholder="email">
+                  <nz-form-explain *ngIf="validateForm.get('email')?.dirty&&validateForm.get('email')?.errors">
+                    <ng-container *ngIf="validateForm.get('email')?.hasError('required')">
+                      Please input your email!
+                    </ng-container>
+                  </nz-form-explain>
+                </nz-form-control>
+              </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="7" nzRequired>Phone Number</nz-form-label>
+                  <nz-form-control [nzSpan]="12" nzHasFeedback>
+                    <input nz-input formControlName="phoneNumber" placeholder="phoneNumber">
+                    <nz-form-explain *ngIf="validateForm.get('phoneNumber')?.dirty&&validateForm.get('phoneNumber')?.errors">
+                      <ng-container *ngIf="validateForm.get('phoneNumber')?.hasError('required')">
+                        Please input your phone number!
+                      </ng-container>
+                    </nz-form-explain>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>First Name</nz-form-label>
+                    <nz-form-control [nzSpan]="12">
+                      <input formControlName="firstName" nz-input rows="2" placeholder="First Name">
+                      <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty&&validateForm.get('firstName')?.hasError('required')">Please write first name here!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Last Name</nz-form-label>
+                    <nz-form-control [nzSpan]="12">
+                      <input formControlName="lastName" nz-input rows="2" placeholder="Last Name">
+                      <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty&&validateForm.get('lastName')?.hasError('required')">Please write last name here!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
+                    <nz-form-control [nzSpan]="12">
+                      <input formControlName="address" nz-input rows="2" placeholder="Address">
+                      <nz-form-explain *ngIf="validateForm.get('address')?.dirty&&validateForm.get('address')?.hasError('required')">Please write address here!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="7" nzRequired>Description</nz-form-label>
+                  <nz-form-control [nzSpan]="12">
+                    <textarea formControlName="user_description" nz-input rows="2" placeholder="Descriptions"></textarea>
+                    <nz-form-explain *ngIf="validateForm.get('description')?.dirty&&validateForm.get('description')?.hasError('required')">Please write descriptions here!</nz-form-explain>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                    <button nz-button nzType="primary" style="margin-right: 15px">Submit</button>
+                    <!-- <button nz-button (click)="resetForm($event)" style="margin-right: 15px">Reset</button> -->
+                  </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+    </div>
+</nz-content>

@@ -1,0 +1,54 @@
+<div style="padding:24px; background: #fff; min-height: 100vh">
+    <nz-breadcrumb nz-col style="margin:16px 0;">
+        <nz-breadcrumb-item>Poll</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Post Poll Request</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="jobReqMain" style="padding:24px; background: #fff; min-height: 100vh;">
+        <h2>Post A New Poll Request</h2>
+
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event, validateForm.value)">
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Poll Title</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input nz-input formControlName="pollTitle" placeholder="Poll Title">
+                <nz-form-explain *ngIf="validateForm.get('pollTitle')?.dirty && validateForm.get('pollTitle')?.errors">
+                  <ng-container *ngIf="validateForm.get('pollTitle')?.hasError('required')">
+                    Please input a poll title!
+                  </ng-container>
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Poll Description</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input nz-input formControlName="description" placeholder="description">
+                <nz-form-explain *ngIf="validateForm.get('description')?.dirty&&validateForm.get('description')?.errors">
+                  <ng-container *ngIf="validateForm.get('description')?.hasError('required')">
+                    Please input your poll description!
+                  </ng-container>
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Poll Details</nz-form-label>
+              <nz-form-control [nzSpan]="12">
+                <ckeditor [editor]="Editor"  formControlName="details" data="<p>Hello, world!</p>"></ckeditor>
+                <nz-form-explain *ngIf="validateForm.get('details')?.dirty&&validateForm.get('details')?.hasError('required')">Please write details here!</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Select Time Range</nz-form-label>
+                <nz-form-control [nzSm]="16" [nzXs]="24">
+                  <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary" style="margin-right: 15px">Submit</button>
+                <!-- <button nz-button (click)="resetForm($event)" style="margin-right: 15px">Reset</button> -->
+                <a [routerLink]="['../']" class="registerbtn btn-link">Cancel</a>
+              </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>         
+</div>

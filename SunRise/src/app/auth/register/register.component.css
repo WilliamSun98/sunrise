@@ -1,0 +1,16 @@
+.registerMain{
+    background-color: lightyellow;
+    /* width: 80%; */
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.registerbtn{
+    margin: 15px 20px 0px 0px;
+}
+
+.ant-select-selection__rendered {
+    height: 40px;
+}

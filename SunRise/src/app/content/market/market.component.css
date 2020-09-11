@@ -1,0 +1,14 @@
+
+
+.job_market_display {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2;
+}
+
+.job_request{
+    display: inline-block;
+    float: right;
+    padding: 1%;
+    font-size: 125%;
+}

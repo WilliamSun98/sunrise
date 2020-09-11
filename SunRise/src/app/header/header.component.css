@@ -1,0 +1,22 @@
+.header_area{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.weather_description {
+    margin-left: 5px;
+}
+
+.weather_detail{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+[nz-button] {
+    margin-top: 12px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+    width: 80px;
+}

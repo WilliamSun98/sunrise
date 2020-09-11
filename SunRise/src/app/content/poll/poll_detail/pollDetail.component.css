@@ -1,0 +1,84 @@
+.General_job_description {
+    height: 200px;
+    background: #99DFF9;
+    display: grid;
+    grid-template-columns: 5% 70% 15% auto;
+    grid-template-rows: 40% 20% 20%;
+}
+
+.Job_Description_Dashboard {
+    display: grid;
+    grid-auto-columns: 75% 25%;
+}
+
+.Detail_job_description {
+    background: white;
+    grid-column: 1;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.Detail_job_description {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    word-break: break-all;
+}
+
+.Detailed_date {
+    grid-column: 2;
+}
+
+#Job_title {
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+    font-size: 25px;
+    padding-top: 25px;
+    grid-column: 2 / span 3;
+    grid-row: 1;
+}
+
+
+#Short_description {
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+    font-size: 25px;
+    padding-top: 10px;
+    grid-column: 2 / span 2;
+    grid-row: 3;
+}
+
+#Company_name {
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+    font-size: 25px;
+    padding-top: 10px;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+
+
+.applybtn {
+    grid-column: 3;
+    grid-row: 3
+}
+
+.drawbtn {
+    margin-top: 5px; 
+    grid-column: 3;
+    grid-row: 4
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-top: 1px solid rgb(232, 232, 232);
+    padding: 10px 16px;
+    text-align: right;
+    left: 0px;
+    background: #fff;
+  }
+
+.response{
+    padding:24px
+}
