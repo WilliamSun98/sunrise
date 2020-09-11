@@ -1,5 +1,5 @@
 # SunRise
-# Read Time Domain: https://sunrise.4jhs.com/
+# Read Time Domain: https://sunrise.4jhs.com/(the domain is no longer in use)
 
 ### Team Member:
  - Jialiang Lin (jialiang.lin@mail.utoronto.ca)
